@@ -10,6 +10,14 @@ yarn install
 
 ### Compiles and hot-reloads for development
 
+Before you serve the app, you should specify the backend url in the `VUE_APP_SERVER_URL` environment variable, example:
+
+```command-line
+export VUE_APP_SERVER_URL="http://localhost:3000"
+```
+
+Then, serve Vue app
+
 ```command-line
 yarn serve
 ```

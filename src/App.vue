@@ -20,9 +20,9 @@
   opacity: 0;
 }
 .slide-enter-active {
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .slide-move {
-  transition: transform 1s ease-in;
+  transition: transform 0.6s ease-in;
 }
 </style>

@@ -1,20 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -23,6 +11,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  min-height: 100vh;
+  background: #f0f0f0;
+}
+
+.slide-enter {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+.slide-enter-active {
+  transition: all 1s ease-in-out;
+}
+.slide-move {
+  transition: transform 1s ease-in;
 }
 </style>

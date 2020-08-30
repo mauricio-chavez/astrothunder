@@ -1,8 +1,8 @@
 <template>
   <main class="chat" ref="chatbox">
-    <p class="has-text-white">Sé amable y comienza por saludar 👻</p>
+    <p v-show="connected" class="has-text-white">Sé amable y comienza por saludar 👻</p>
     <transition-group name="slide" tag="div">
-      <message v-for="(m, i) in messages" :key="i" :from="m.from">
+      <message v-for="m in messages" :key="m.id" :from="m.from">
         {{ m.text }}
       </message>
     </transition-group>
@@ -16,7 +16,7 @@ import Message from '@/components/Message.vue';
 export default {
   name: 'Chatbox',
   components: { Message },
-  computed: mapState(['messages']),
+  computed: mapState(['messages', 'connected']),
   watch: {
     messages() {
       const chatbox = this.$refs.chatbox;

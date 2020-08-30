@@ -5,7 +5,16 @@
       <p class="subtitle">Tu mejor amigo artificial ⚡️</p>
       <div>
         <chatbox />
-        <chat-input />
+        <chat-input v-if="connected" />
+        <b-button
+          v-else
+          type="is-dark"
+          expanded
+          @click="initializeSocket"
+          :loading="loading"
+        >
+          Comenzar
+        </b-button>
       </div>
     </div>
   </section>
@@ -14,14 +23,13 @@
 <script>
 import Chatbox from '@/components/Chatbox.vue';
 import ChatInput from '@/components/ChatInput.vue';
-import { initializeSockets } from '@/api/sockets';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'Home',
   components: { Chatbox, ChatInput },
-  created() {
-    initializeSockets()
-  },
+  computed: mapState(['connected', 'loading']),
+  methods: mapActions(['initializeSocket']),
 };
 </script>
 

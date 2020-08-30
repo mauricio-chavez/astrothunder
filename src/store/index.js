@@ -54,9 +54,11 @@ export default new Vuex.Store({
       });
     },
     sendMessage({ state, commit }, message) {
-      if (state.connected) {
+      if (state.connected && state.socket) {
         state.socket.emit('chat message', message);
         commit('ADD_MESSAGE', { text: message, from: 'client' });
+      } else if (state.connected && !state.socket) {
+        commit('DISCONNECT');
       }
     },
   },
